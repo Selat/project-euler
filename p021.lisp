@@ -1,5 +1,5 @@
 (defconstant &maxn& 100000)
-(defconstant &maxprime& 320)
+(defconstant &maxprime& 1000)
 (defvar *primes* (make-array &maxprime& :element-type 'fixnum))
 (defvar *amicable-numbers* nil)
 
@@ -34,7 +34,6 @@
                          (loop while (zerop (mod curn tmp))
                                do (incf num)
                                   (setf tmp (* tmp p)))
-                         (format t "~A ~A~%" p tmp)
                          (setf curn (/ curn (/ tmp p)))
                          (setf res (* res (/ (1- tmp) (1- p))))
                          (if (= curn 1) (return-from outer res)))))
